@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import dj_database_url
-DATABASES = {'default': dj_database_url.parse('postgres://ewowkrblxisjxo:kp3nO0tzdqL7RAHwRZ2icnY4mI@ec2-54-83-29-15.compute-1.amazonaws.com:5432/dckdrd5fdo6s7t')}
+DATABASES = {'default': dj_database_url.parse('postgres://yyxdpvppmxcxmo:JOfM5szydOCFhlPUaG48qqFwCk@ec2-54-83-203-50.compute-1.amazonaws.com:5432/d4ca7f7mvjkkfg')}
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
