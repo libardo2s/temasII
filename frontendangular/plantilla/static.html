@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>ReinarApp</title>
+
+		<!-- BEGIN META -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="your,keywords">
+		<meta name="description" content="Short explanation about this website">
+		<!-- END META -->
+
+		<!-- BEGIN STYLESHEETS -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+		<link type="text/css" rel="stylesheet" href="assets/css/theme-default/bootstrap.css?1422792965" />
+		<link type="text/css" rel="stylesheet" href="assets/css/theme-default/materialadmin.css?1425466319" />
+		<link type="text/css" rel="stylesheet" href="assets/css/theme-default/font-awesome.min.css?1422529194" />
+		<link type="text/css" rel="stylesheet" href="assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
+		<!-- END STYLESHEETS -->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="assets/js/libs/utils/html5shiv.js?1403934957"></script>
+		<script type="text/javascript" src="assets/js/libs/utils/respond.min.js?1403934956"></script>
+		<![endif]-->
+	</head>
+	<body class="menubar-hoverable header-fixed " ng-app="MyApp">
+
+		<!-- BEGIN HEADER-->
+		<header id="header" >
+			<div class="headerbar">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="headerbar-left">
+					<ul class="header-nav header-nav-options">
+						<li class="header-nav-brand" >
+							<div class="brand-holder">
+								<a href="../../html/dashboards/dashboard.html">
+									<span class="text-lg text-bold text-primary">ReinarAR ADMIN</span>
+                                
+								</a>
+							</div>
+						</li>
+						<li>
+							<a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+								<i class="fa fa-bars"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="headerbar-right">
+					<ul class="header-nav header-nav-options">
+
+
+
+					<ul class="header-nav header-nav-toggle">
+						<li>
+							<a class="btn btn-icon-toggle btn-default" href="#offcanvas-search" data-toggle="offcanvas" data-backdrop="false">
+								<i class="fa fa-ellipsis-v"></i>
+							</a>
+						</li>
+					</ul><!--end .header-nav-toggle -->
+				</ul>
+			</div>
+		</header>
+		<!-- END HEADER-->
+
+		<!-- BEGIN BASE-->
+		<div id="base">
+
+			<!-- BEGIN OFFCANVAS LEFT -->
+			<div class="offcanvas">
+			</div><!--end .offcanvas-->
+			<!-- END OFFCANVAS LEFT -->
+
+			<!-- BEGIN CONTENT-->
+			<div id="content">
+				<section>
+					<div class="section-header">
+						<ol class="breadcrumb">
+							<li class="active">Datos</li>
+						</ol>
+					</div>
+					<div class="section-body contain-lg">
+
+						<!-- BEGIN INTRO -->
+  <div ng-controller="DRF">
+
+
+
+						<!-- BEGIN DARK TABLE -->
+						<div class="row">
+							<div class="col-lg-12">
+								<h4>Colegios</h4>
+							</div><!--end .col -->
+						<!--end .col -->
+							<div class="col-lg-12">
+								<div class="card style-primary">
+									<div class="card-body">
+										<table class="table table-hover no-margin">
+											<thead>
+												<tr>
+													<th>Codigo</th>
+													<th>Nombre</th>
+													<th>Direccion</th>
+													<th>Telefono</th>
+                                                    <th>Ver</th>
+                                                    <th>Eliminar</th>
+                                                    <th>Editar</th>
+
+												</tr>
+											</thead>
+
+											<tbody>
+
+{{ name  }}
+
+
+												<tr ng-repeat="x in name">
+													<td>{{ x.codigo }}</td>
+													<td>{{ x.nombre }}</td>
+													<td>{{ x.direccion }}</td>
+													<td>{{ x.telefono }}</td>
+                                                    <td>
+                                                        <a class="btn ink-reaction btn-icon-toggle"  data-placement="top" data-original-title="Delete mail" data-toggle="modal"  ng-click="getitem()">
+								<span class="md md-open-in-new"></span>
+							</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <a class="btn ink-reaction btn-icon-toggle"  data-placement="top" data-original-title="Delete mail" data-toggle="modal" data-target="#simpleModal" >
+								<span class="md md-delete"></span>
+							</a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn ink-reaction btn-icon-toggle"  data-placement="top" data-original-title="Delete mail">
+								<span class="md md-edit"></span>
+							</a>
+                                                    </td>
+												</tr>
+
+
+											</tbody>
+										</table>
+                                        </div><!--end .section-body -->
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+
+							</div><!--end .col -->
+						</div><!--end .row -->
+
+						<!-- END DARK TABLE -->
+
+
+
+				</section>
+                <div class="section-body contain-lg">
+                <div class="section-action style-primary">
+
+						<div class="section-floating-action-row">
+							<a class="btn ink-reaction btn-floating-action btn-lg btn-accent"  data-placement="top"  data-toggle="modal" data-target="#formModal">
+								<i class="md md-add"></i>
+							</a>
+						</div>
+    </div>
+</div>
+				<!-- BEGIN TABLE HOVER -->
+
+			</div>
+<!-- BEGIN FORM MODAL MARKUP -->
+
+<div class="modal fade" id="simpleModal" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="simpleModalLabel">Eliminar</h4>
+			</div>
+			<div class="modal-body">
+				<p>Esta seguro que quiere eliminar este colegio {{ codigo }}?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				<button type="button" class="btn btn-primary">Si</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+
+<!-- BEGIN FORM MODAL MARKUP -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="formModalLabel">Agregar Colegio</h4>
+			</div>
+			<form class="form-horizontal" role="form">
+				<div class="modal-body">
+					<div class="form-group">
+						<div class="col-sm-3">
+							<label for="email1" class="control-label">Codigo</label>
+						</div>
+						<div class="col-sm-9">
+							<input type="text" name="email1" id="email1" class="form-control" placeholder="Codigo">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-3">
+							<label for="password1" class="control-label">Nombre</label>
+						</div>
+						<div class="col-sm-9">
+							<input type="text" name="password1" id="password1" class="form-control" placeholder="Nombre">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-3">
+							<label for="password1" class="control-label">Direccion</label>
+						</div>
+						<div class="col-sm-9">
+							<input type="text" name="password1" id="password1" class="form-control" placeholder="Direccion">
+						</div>
+					</div>
+
+                    	<div class="form-group">
+						<div class="col-sm-3">
+							<label for="password1" class="control-label">Telefono</label>
+						</div>
+						<div class="col-sm-9">
+							<input type="text" name="password1" id="password1" class="form-control" placeholder="Telefono">
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Agregar</button>
+				</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- END FORM MODAL MARKUP -->
+
+
+            <!--end #content-->
+			<!-- END CONTENT -->
+
+			<!-- BEGIN MENUBAR-->
+			<div id="menubar" class="menubar-inverse ">
+				<div class="menubar-fixed-panel">
+					<div>
+						<a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+							<i class="fa fa-bars"></i>
+						</a>
+					</div>
+					<div class="expanded">
+						<a href="../../html/dashboards/dashboard.html">
+							<span class="text-lg text-bold text-primary ">ReinAR &nbsp;ADMIN</span>
+						</a>
+					</div>
+				</div>
+				<div class="menubar-scroll-panel">
+
+					<!-- BEGIN MAIN MENU -->
+					<ul id="main-menu" class="gui-controls">
+
+						<!-- BEGIN TABLES -->
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-table"></i></div>
+								<span class="title">Tablas</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+                                <li><a href="../../html/tables/responsive.html" ><span class="title">Colegios</span></a></li>
+                                <li><a href="../../html/tables/responsive.html" ><span class="title">Grados</span></a></li>
+								<li><a href="../../html/tables/static.html" ><span class="title">Estudiantes</span></a></li>
+								<li><a href="../../html/tables/dynamic.html" ><span class="title">Profesores</span></a></li>
+                                <li><a href="../../html/tables/responsive.html" ><span class="title">Puntuaciones</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+
+
+						<!-- END TABLES -->
+                        	<!-- BEGIN CHARTS -->
+						<li>
+							<a href="../../html/charts/charts.html" >
+								<div class="gui-icon"><i class="md md-assessment"></i></div>
+								<span class="title">Graficas</span>
+							</a>
+						</li><!--end /menu-li -->
+						<!-- END CHARTS -->
+
+                        </ul>
+					<!-- END MAIN MENU -->
+
+					<div class="menubar-foot-panel">
+						<small class="no-linebreak hidden-folded">
+							<span class="opacity-75">Copyright &copy; 2015</span> <strong>ReinarApp</strong>
+						</small>
+					</div>
+				</div><!--end .menubar-scroll-panel-->
+			</div><!--end #menubar-->
+			<!-- END MENUBAR -->
+
+
+			</div><!--end .offcanvas-->
+			<!-- END OFFCANVAS RIGHT -->
+
+		</div><!--end #base-->
+		<!-- END BASE -->
+
+		<!-- BEGIN JAVASCRIPT -->
+		<script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+		<script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+		<script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+		<script src="assets/js/libs/spin.js/spin.min.js"></script>
+		<script src="assets/js/libs/autosize/jquery.autosize.min.js"></script>
+		<script src="assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+        <script src="assets/js/libs/angular-1.3.16/angular.min.js"></script>
+         <script src="assets/js/libs/angular-1.3.16/angular-route.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/Controllers.js"></script>
+		<script src="assets/js/core/source/App.js"></script>
+		<script src="assets/js/core/source/AppNavigation.js"></script>
+		<script src="assets/js/core/source/AppOffcanvas.js"></script>
+		<script src="assets/js/core/source/AppCard.js"></script>
+		<script src="assets/js/core/source/AppForm.js"></script>
+		<script src="assets/js/core/source/AppNavSearch.js"></script>
+		<script src="assets/js/core/source/AppVendor.js"></script>
+		<script src="assets/js/core/demo/Demo.js"></script>
+		<!-- END JAVASCRIPT -->
+
+	</body>
+</html>
