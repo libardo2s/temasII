@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import ColegioSerialerzs,EstudianteSerialerzs,DocenteSerialerzs,PuntuacionSerialerzs,UsuarioSerialerzs
+from .serializers import ColegioSerialerzs,EstudianteSerialerzs,DocenteSerialerzs,PuntuacionSerialerzs,UsuarioSerialerzs,CursoSerialerzs
 from .models import *
 from django.shortcuts import get_object_or_404
 # Create your views here.
@@ -38,6 +38,42 @@ class ColegioApi(APIView):
         colegio = get_object_or_404(Colegio,pk=cod)
         colegio.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class CursoApi(APIView):
+    serializer_class = CursoSerialerzs
+    
+    def get(self,request,id=None,format=None):
+        muchos = False
+        if id != None:
+            cursos = get_object_or_404(Curso,pk=id)
+        else:
+            muchos = True
+            cursos= Curso.objects.all()
+        response=self.serializer_class(cursos,many=muchos)
+        return Response(response.data)
+        
+    def post(self, request, format=None):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, id, format=None):
+        curso =  get_object_or_404(Curso,pk=id)
+        serializer = self.serializer_class(curso, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, id, format=None):
+        curso = get_object_or_404(Curso,pk=id)
+        estudiante.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    
+    
 
 class EstudianteApi(APIView):
     serializer_class = EstudianteSerialerzs

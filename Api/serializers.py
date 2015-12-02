@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Colegio,Estudiante,Puntuacion,Docente,User
+from .models import Colegio,Estudiante,Puntuacion,Docente,User,Curso
 
 class UsuarioSerialerzs(ModelSerializer):
     class Meta:
@@ -14,6 +14,12 @@ class ColegioSerialerzs(ModelSerializer):
         model = Colegio
         fields = ('codigo','nombre','direccion','telefono','estado','usuario')
 
+class CursoSerialerzs(ModelSerializer):
+    #colegio = ColegioSerialerzs(many=False,read_only=True)
+    
+    class Meta:
+        model = Curso
+        fields = ('grado','salon','colegio')
 
 class EstudianteSerialerzs(ModelSerializer):
 
@@ -26,9 +32,10 @@ class EstudianteSerialerzs(ModelSerializer):
 
 class DocenteSerialerzs(ModelSerializer):
     usuario=UsuarioSerialerzs(many=False, read_only=True)
+    salon=CursoSerialerzs(many=False, read_only=True)
     class Meta:
         model = Docente
-        fields = ('tipo_documento','documento','primer_nombre','segundo_nombre','primer_apellido','segundo_apellido','sexo','fecha_nacimiento','usuario','correo')
+        fields = ('tipo_documento','documento','primer_nombre','segundo_nombre','primer_apellido','segundo_apellido','sexo','fecha_nacimiento','usuario','correo','salon')
 
 
 class PuntuacionSerialerzs(ModelSerializer):
@@ -36,4 +43,3 @@ class PuntuacionSerialerzs(ModelSerializer):
     class Meta:
         model = Puntuacion
         fields = ('estudiante','puntuacion','fecha')
-
