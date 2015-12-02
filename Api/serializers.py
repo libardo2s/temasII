@@ -32,7 +32,7 @@ class EstudianteSerialerzs(ModelSerializer):
 
 class DocenteSerialerzs(ModelSerializer):
     usuario=UsuarioSerialerzs(many=False, read_only=True)
-    salon=CursoSerialerzs(many=False, read_only=True)
+    salon=CursoSerialerzs(many=True, read_only=True)
     class Meta:
         model = Docente
         fields = ('tipo_documento','documento','primer_nombre','segundo_nombre','primer_apellido','segundo_apellido','sexo','fecha_nacimiento','usuario','correo','salon')
