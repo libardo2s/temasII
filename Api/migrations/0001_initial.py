@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
             name='Estudiante',
             fields=[
                 ('persona_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='Api.Persona')),
-                ('salon', models.ForeignKey(to='Api.Curso', null=True)),
+                ('salon', models.ForeignKey(to='Api.Curso')),
             ],
             bases=('Api.persona',),
         ),

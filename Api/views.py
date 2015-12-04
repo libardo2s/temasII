@@ -69,7 +69,7 @@ class CursoApi(APIView):
 
     def delete(self, request, id, format=None):
         curso = get_object_or_404(Curso,pk=id)
-        estudiante.delete()
+        curso.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
     

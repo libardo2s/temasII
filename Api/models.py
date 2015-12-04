@@ -110,7 +110,7 @@ class Persona(models.Model):
 
 
 class Estudiante(Persona):
-    salon = models.ForeignKey(Curso, null=True)
+    salon = models.ForeignKey(Curso)
 
 
 class Puntuacion(models.Model):

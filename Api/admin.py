@@ -15,7 +15,7 @@ class PuntuacionAdmin(admin.ModelAdmin):
 
 
 class CursoAdmin(admin.ModelAdmin):
-    list_display = ("grado", "salon", "colegio")
+    list_display = ('id',"grado", "salon", "colegio")
 # Register your models here.
 admin.site.register(Colegio, ColegioAdmin)
 admin.site.register(Estudiante, PersonaAdmin)
