@@ -39,7 +39,7 @@ class DocenteSerialerzs(ModelSerializer):
 
 
 class PuntuacionSerialerzs(ModelSerializer):
-    estudiante = EstudianteSerialerzs(many=False, read_only=True)
+    #estudiante = EstudianteSerialerzs(many=False, read_only=True)
     class Meta:
         model = Puntuacion
         fields = ('estudiante','puntuacion','fecha')

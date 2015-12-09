@@ -129,6 +129,7 @@ class DocenteApi(APIView):
 
     def put(self, request, ced, format=None):
         docente =  get_object_or_404(Docente,pk=ced)
+        print(docente)
         serializer = self.serializer_class(docente, data=request.data)
         if serializer.is_valid():
             serializer.save()

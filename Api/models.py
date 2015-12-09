@@ -77,7 +77,7 @@ class Persona(models.Model):
     sexo = models.CharField(max_length=1, choices=Sexo, default='M')
     fecha_nacimiento = models.DateField()
     usuario = models.ForeignKey(User, null=True, blank=True)
-    correo = models.EmailField(blank=True, null=True, unique=True)
+    correo = models.EmailField(blank=True, null=True)
 
     def __unicode__(self):
         return  self.primer_nombre + " "+self.primer_apellido+" "+self.segundo_apellido
