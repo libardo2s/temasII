@@ -129,7 +129,6 @@ class DocenteApi(APIView):
 
     def put(self, request, ced, format=None):
         docente =  get_object_or_404(Docente,pk=ced)
-        print(docente)
         serializer = self.serializer_class(docente, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -144,15 +143,29 @@ class DocenteApi(APIView):
 
 class PuntuacionApi(APIView):
     serializer_class= PuntuacionSerialerzs
-    def get(self,request,cod=None,format=None):
+    def get(self,request,cod=None,ced=None,format=None):
         muchos = False
-        if cod != None:
-            puntuacion= get_object_or_404(Puntuacion,pk=cod)
-        else:
+        if ced != None:
             muchos = True
-            puntuacion= Puntuacion.objects.all()
-        response=self.serializer_class(puntuacion,many=muchos)
-        return Response(response.data)
+            puntuacion= Puntuacion.objects.filter(estudiante__documento=ced)
+        else:
+            if cod != None:
+                muchos = True
+                puntuaciones= Puntuacion.objects.filter(estudiante__salon__colegio__codigo=cod)
+                puntuacion = []
+                for puntaje in puntuaciones: 
+                    salida = {
+                        'id': puntaje.estudiante.documento,
+                        'nombre': puntaje.estudiante.primer_nombre+" "+puntaje.estudiante.primer_apellido, 
+                        'puntuacion':puntaje.puntuacion,
+                    }
+                    puntuacion.append(salida)
+                return Response(puntuacion)    
+            else:
+                muchos = True
+                puntuacion= Puntuacion.objects.all()
+                response=self.serializer_class(puntuacion,many=muchos)
+                return Response(response.data)
 
     def post(self, request, format=None):
         serializer = self.serializer_class(data=request.data)

@@ -75,8 +75,8 @@ class Persona(models.Model):
     primer_apellido = models.CharField(max_length=50)
     segundo_apellido = models.CharField(max_length=50)
     sexo = models.CharField(max_length=1, choices=Sexo, default='M')
-    fecha_nacimiento = models.DateField()
-    usuario = models.ForeignKey(User, null=True, blank=True)
+    fecha_nacimiento = models.DateTimeField()
+    usuario = models.ForeignKey(User, null=True, blank=True,unique=False)
     correo = models.EmailField(blank=True, null=True)
 
     def __unicode__(self):
@@ -104,7 +104,7 @@ class Persona(models.Model):
         user = User(username=nombre_usuario, password=str(self.documento))
         user.is_staff = True
         user.is_superuser = False
-        user.save()
+        user.save(force_update=True)
         self.usuario= user
         super(Persona, self).update(*args, **kwargs)
 

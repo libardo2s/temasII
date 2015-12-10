@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^api/docente/$',DocenteApi.as_view(),name='apidocente'),
     url(r'^api/docente/(?P<ced>\w+)/$',DocenteApi.as_view(),name='apidocente'),
     url(r'^api/puntuacion/$',PuntuacionApi.as_view(),name='apipuntuacion'),
+    url(r'^api/puntuacion/(?P<cod>\w+)/$',PuntuacionApi.as_view(),name='apipuntuacion'),
     url(r'^api/curso/$',CursoApi.as_view(), name='apicurso'),
     url(r'^api/curso/(?P<id>\w+)/$',CursoApi.as_view(), name='apicurso'),
 ]
